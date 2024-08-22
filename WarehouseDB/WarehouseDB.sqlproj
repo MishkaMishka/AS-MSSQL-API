@@ -59,9 +59,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Articles.sql" />
     <Build Include="Tables\Prices.sql" />
+    <Build Include="Stored Procedures\GetArticles.sql" />
   </ItemGroup>
 </Project>
