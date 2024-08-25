@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Articles]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(100) NOT NULL UNIQUE,
+	[Description] NVARCHAR(100) NULL
+)
