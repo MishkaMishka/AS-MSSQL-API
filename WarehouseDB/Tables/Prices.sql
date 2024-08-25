@@ -1,9 +1,9 @@
 ﻿CREATE TABLE [dbo].[Prices]
 (
-	[Id] INT NOT NULL , 
-	[ArticleID] INT NULL, 
+	[Id] INT NOT NULL IDENTITY, 
+	[ArticleId] INT NULL, 
 	[Price] DECIMAL NULL, 
-	[Date] DATE NULL, 
+	[Date] DATETIME NULL, 
 	PRIMARY KEY ([Id]), 
-	CONSTRAINT [FK_Prices_Articles] FOREIGN KEY ([ArticleID]) REFERENCES [Articles]([Id])
+	CONSTRAINT [FK_Prices_Articles] FOREIGN KEY ([ArticleId]) REFERENCES [Articles]([Id])
 )
