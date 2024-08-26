@@ -22,8 +22,9 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DacDescription>1.0.0 - Initial</DacDescription>
-    <DacVersion>1.0.0</DacVersion>
+    <DacDescription>1.0.1 - Fixed GetById procedure 
+1.0.0 - Initial</DacDescription>
+    <DacVersion>1.0.1</DacVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -66,6 +67,7 @@
     <Build Include="Tables\Prices.sql" />
     <Build Include="Stored Procedures\GetArticles.sql" />
     <Build Include="Stored Procedures\AddArticle.sql" />
+    <Build Include="Stored Procedures\GetArticlesById.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WarehouseDB.refactorlog" />
