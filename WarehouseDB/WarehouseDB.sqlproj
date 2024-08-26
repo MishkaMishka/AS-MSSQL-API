@@ -66,6 +66,7 @@
     <Build Include="Tables\Prices.sql" />
     <Build Include="Stored Procedures\GetArticles.sql" />
     <Build Include="Stored Procedures\AddArticle.sql" />
+    <Build Include="Stored Procedures\GetArticlesById.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WarehouseDB.refactorlog" />
