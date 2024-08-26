@@ -9,7 +9,7 @@ public class ArticlesController : ControllerBase
 {
 	private readonly IApplicationDbContext _context;
 
-	public ArticlesController(ApplicationDbContext context)
+	public ArticlesController(IApplicationDbContext context)
 	{
 		_context = context;
 	}
@@ -34,7 +34,6 @@ public class ArticlesController : ControllerBase
 
 		return Ok(article);
 	}
-
 
 	[HttpPost]
 	public async Task<ActionResult<ArticleModel>> CreateArticle(CreateArticleDto createArticleDto)
