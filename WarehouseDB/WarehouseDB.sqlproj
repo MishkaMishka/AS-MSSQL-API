@@ -22,8 +22,9 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DacDescription>1.0.0 - Initial</DacDescription>
-    <DacVersion>1.0.0</DacVersion>
+    <DacDescription>1.0.1 - Fixed GetById procedure 
+1.0.0 - Initial</DacDescription>
+    <DacVersion>1.0.1</DacVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
