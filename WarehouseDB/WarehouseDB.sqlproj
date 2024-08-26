@@ -22,9 +22,10 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DacDescription>1.0.1 - Fixed GetById procedure 
+    <DacDescription>1.0.2 - Bugfix Price column precision
+1.0.1 - Fixed GetById procedure 
 1.0.0 - Initial</DacDescription>
-    <DacVersion>1.0.1</DacVersion>
+    <DacVersion>1.0.2</DacVersion>
     <GenerateCreateScript>True</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
