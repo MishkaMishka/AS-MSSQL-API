@@ -7,26 +7,24 @@ using Microsoft.EntityFrameworkCore;
 [ApiController]
 public class ArticlesController : ControllerBase
 {
-	private readonly IApplicationDbContext _context;
+	private readonly IArticleRepository _articleRepository;
 
-	public ArticlesController(IApplicationDbContext context)
+	public ArticlesController(IArticleRepository articleRepository)
 	{
-		_context = context;
+		_articleRepository = articleRepository;
 	}
 
 	[HttpGet]
-	public async Task<ActionResult<IEnumerable<ArticleModel>>> GetArticles()
+	public async Task<IActionResult> GetAllArticles()
 	{
-		return await _context.Articles.Include(a => a.Prices).ToListAsync();
+		var articles = await _articleRepository.GetAllArticlesAsync();
+		return Ok(articles);
 	}
 
 	[HttpGet("{id}")]
-	public async Task<ActionResult<ArticleModel>> GetArticleById(int id)
+	public async Task<IActionResult> GetArticleById(int id)
 	{
-		var article = await _context.Articles
-			.Include(a => a.Prices)  // Automatically load prices
-			.FirstOrDefaultAsync(a => a.Id == id);
-
+		var article = await _articleRepository.GetArticleByIdAsync(id);
 		if (article == null)
 		{
 			return NotFound();
@@ -35,25 +33,43 @@ public class ArticlesController : ControllerBase
 		return Ok(article);
 	}
 
-	[HttpPost]
-	public async Task<ActionResult<ArticleModel>> CreateArticle(CreateArticleDto createArticleDto)
+	[HttpGet("{articleId}/prices")]
+	public async Task<IActionResult> GetPricesForArticle(int articleId)
 	{
-		// DTO map
-		var article = new ArticleModel
+		var prices = await _articleRepository.GetPricesForArticleAsync(articleId);
+		return Ok(prices);
+	}
+
+	[HttpPost("{articleId}/prices")]
+	public async Task<IActionResult> AddPriceToArticle(int articleId, [FromBody] CreatePriceDto createPriceDto)
+	{
+		var newPrice = new PriceModel
+		{
+			Price = createPriceDto.Price,
+			Date = createPriceDto.Date
+		};
+
+		var addedPrice = await _articleRepository.AddPriceToArticleAsync(articleId, newPrice);
+		if (addedPrice == null)
+		{
+			return NotFound();
+		}
+
+		return CreatedAtAction(nameof(GetPricesForArticle), new { articleId = articleId }, addedPrice);
+	}
+
+	[HttpPost]
+	public async Task<IActionResult> AddArticle([FromBody] CreateArticleDto createArticleDto)
+	{
+		var newArticle = new ArticleModel
 		{
 			Name = createArticleDto.Name,
 			Description = createArticleDto.Description,
-			Prices = createArticleDto.Prices?.Select(p => new PriceModel
-			{
-				Price = p.Price,
-				Date = p.Date
-			}).ToList()
+			Prices = new List<PriceModel>() // You can populate this with createArticleDto.Prices if required
 		};
 
-		// Add article to the context
-		_context.Articles.Add(article);
-		await _context.SaveChangesAsync();
+		var addedArticle = await _articleRepository.AddArticleAsync(newArticle);
 
-		return CreatedAtAction(nameof(GetArticleById), new { id = article.Id }, article);
+		return CreatedAtAction(nameof(GetArticleById), new { id = addedArticle.Id }, addedArticle);
 	}
 }
