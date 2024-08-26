@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 [ApiController]
 public class ArticlesController : ControllerBase
 {
-	private readonly ApplicationDbContext _context;
+	private readonly IApplicationDbContext _context;
 
 	public ArticlesController(ApplicationDbContext context)
 	{
