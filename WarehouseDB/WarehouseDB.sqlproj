@@ -25,6 +25,7 @@
     <DacDescription>1.0.1 - Fixed GetById procedure 
 1.0.0 - Initial</DacDescription>
     <DacVersion>1.0.1</DacVersion>
+    <GenerateCreateScript>True</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
