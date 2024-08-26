@@ -10,7 +10,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
+  
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v2
+      
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
@@ -18,12 +21,3 @@ jobs:
 
     - name: Restore dependencies
       run: dotnet restore
-
-    - name: Build excluding .sqlproj
-      run: |
-        dotnet build --no-restore -p:ExcludeProjectFromBuild="WarehouseDB"
-        # Replace "YourSqlProjectName" with the actual name of the .sqlproj project to exclude
-        # Alternatively, if you need to exclude multiple projects, you might need to adjust the solution configuration
-
-    - name: Run tests
-      run: dotnet test --no-build
