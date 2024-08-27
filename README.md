@@ -54,6 +54,35 @@
 - **Response**: 
   - `201 Created` with details of the newly created article.
 
+## Setup and Launch Guide
+
+### 1. Publish `WarehouseDB`
+- Restore or import the `WarehouseDB` database to your local SQL Server instance using SQL Server Management Studio (SSMS).
+
+### 2. Execute `LoadDummyData`
+- Open SSMS and execute the `LoadDummyData` stored procedure in the `WarehouseDB` database to populate the necessary tables.
+
+### 3. Configure `appsettings.json`
+- Update the connection string in `appsettings.json` to connect to your local SQL Server instance with the `WarehouseDB` database. Ensure to replace placeholder values with your SQL Server credentials.
+
+### 4. Launch the Application
+
+- **Swagger:** Start the application and navigate to `http://localhost:{port}/swagger` to view and test the API endpoints.
+- **Postman:** Use Postman to test API endpoints at `http://localhost:{port}/api/Articles` or other relevant URLs.
+- **AS-MSSQL-API.http:** Run pre-configured HTTP requests to interact with the API.
+
+### 5. Verify Functionality
+
+- Ensure that API endpoints are working as expected and interacting correctly with the `WarehouseDB` database. Use logging for debugging if necessary.
+
+## Additional Notes
+
+- Ensure your local SQL Server instance is running and accessible.
+- Update the `appsettings.json` file as needed for different environments or credentials.
+
+For more information on the API and its endpoints, refer to the Swagger documentation or the `AS-MSSQL-API.http` file.
+
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
