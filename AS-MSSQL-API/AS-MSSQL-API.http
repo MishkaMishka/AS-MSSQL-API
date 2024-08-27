@@ -1,6 +1,39 @@
 @AS_MSSQL_API_HostAddress = http://localhost:5024
 
-GET {{AS_MSSQL_API_HostAddress}}/weatherforecast/
+GET {{AS_MSSQL_API_HostAddress}}/api/Articles
 Accept: application/json
 
 ###
+
+GET {{AS_MSSQL_API_HostAddress}}/api/Articles/{id}
+Accept: application/json
+
+###
+
+GET {{AS_MSSQL_API_HostAddress}}/api/Articles/{ArticleId}/Prices
+Accept: application/json
+
+###
+
+POST {{AS_MSSQL_API_HostAddress}}/api/Articles
+Content-Type: application/json
+
+{
+  "name": "string",
+  "description": "string",
+  "prices": [
+    {
+      "price": 0,
+      "date": "date"
+    }
+  ]
+}
+###
+
+POST {{AS_MSSQL_API_HostAddress}}/api/Articles/{ArticleId}/prices
+Content-Type: application/json
+
+{
+  "price": 0,
+  "date": "date"
+}
