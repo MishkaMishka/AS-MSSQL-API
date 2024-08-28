@@ -81,8 +81,3 @@
 - Update the `appsettings.json` file as needed for different environments or credentials.
 
 For more information on the API and its endpoints, refer to the Swagger documentation or the `AS-MSSQL-API.http` file.
-
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
