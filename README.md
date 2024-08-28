@@ -1,4 +1,4 @@
-# AS-MSSQL-API [![.NET](https://github.com/MishkaMishka/AS-MSSQL-API/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/MishkaMishka/AS-MSSQL-API/actions/workflows/dotnet.yml)
+# AS-MSSQL-API [![.NET](https://github.com/MishkaMishka/AS-MSSQL-API/actions/workflows/dotnet.yml/badge.svg)](https://github.com/MishkaMishka/AS-MSSQL-API/actions/workflows/dotnet.yml)
 
 ## Overview
 
