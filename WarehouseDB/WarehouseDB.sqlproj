@@ -22,11 +22,12 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DacDescription>1.1.0 - Added procedure LoadDummyData
+    <DacDescription>1.1.1 - Solution clean up
+1.1.0 - Added procedure LoadDummyData
 1.0.2 - Bugfix Price column precision
 1.0.1 - Fixed GetById procedure 
 1.0.0 - Initial</DacDescription>
-    <DacVersion>1.1.0</DacVersion>
+    <DacVersion>1.1.1</DacVersion>
     <GenerateCreateScript>True</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -63,15 +64,10 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
-    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Articles.sql" />
     <Build Include="Tables\Prices.sql" />
-    <Build Include="Stored Procedures\GetArticles.sql" />
-    <Build Include="Stored Procedures\AddArticle.sql" />
-    <Build Include="Stored Procedures\GetArticlesById.sql" />
-    <Build Include="Stored Procedures\LoadDummyData.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WarehouseDB.refactorlog" />
